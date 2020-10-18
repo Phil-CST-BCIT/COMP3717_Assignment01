@@ -47,6 +47,8 @@ public class Title extends AppCompatActivity {
             String jsonStr = null;
 
             // Making a request to url and getting response
+            // URL to get contacts JSON
+            String SERVICE_URL = "https://newsapi.org/v2/everything?q=bitcoin&apiKey=d756c14cccba4dad966144c75787dfa1";
             jsonStr = sh.makeServiceCall(SERVICE_URL);
 
             Log.e(TAG,  jsonStr);
