@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Assignment01</string>
+    <string name="keyword">keyword</string>
+    <string name="search">search</string>
+    <string name="searchHint">Search keyword</string>
+
+
 </resources>
