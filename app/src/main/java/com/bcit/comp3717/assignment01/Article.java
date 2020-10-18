@@ -34,7 +34,6 @@ public class Article implements Serializable {
     @Expose
     private String content;
 
-
     public String getAuthor() {
         return author;
     }
@@ -79,7 +78,6 @@ public class Article implements Serializable {
     public String getContent() {
         return content;
     }
-
     public String toString() {
         return "Articles: [ author = " + author + ", title = " + title + " ]";
     }
