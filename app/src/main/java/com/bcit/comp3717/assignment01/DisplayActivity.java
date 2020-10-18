@@ -31,6 +31,9 @@ public class DisplayActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setLogo(R.drawable.ic_action_name);
+        getSupportActionBar().setDisplayUseLogoEnabled(true);
         Intent intent = getIntent();
         Article article = (Article) intent.getSerializableExtra("JSON_DOCUMENT");
         if (article != null) {

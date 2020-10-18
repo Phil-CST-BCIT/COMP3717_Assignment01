@@ -20,7 +20,10 @@ public class Title extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_title);
-
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setLogo(R.drawable.ic_action_name);
+        getSupportActionBar().setDisplayUseLogoEnabled(true);
+        
         Intent intent = getIntent();
         String keyword = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
 
