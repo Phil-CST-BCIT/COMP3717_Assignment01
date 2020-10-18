@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Assignment01</string>
+    <string name="keyword">keyword</string>
+    <string name="search">search</string>
+
+
 </resources>
