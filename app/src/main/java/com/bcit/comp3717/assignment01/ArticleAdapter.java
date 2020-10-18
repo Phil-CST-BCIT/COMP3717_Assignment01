@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class ArticleAdapter extends ArrayAdapter<Article> {
+public class  ArticleAdapter extends ArrayAdapter<Article> {
     Context _context;
     public ArticleAdapter(Context context, ArrayList<Article> articles) {
         super(context, 0, articles);
