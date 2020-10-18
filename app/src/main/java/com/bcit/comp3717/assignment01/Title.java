@@ -14,18 +14,16 @@ import java.util.ArrayList;
 public class Title extends AppCompatActivity {
 
     private String TAG = Title.class.getSimpleName();
-    private ListView titleLV;
-    // URL to get contacts JSON
-    private static String SERVICE_URL = "https://newsapi.org/v2/everything?q=bitcoin&apiKey=d756c14cccba4dad966144c75787dfa1";
-    private ArrayList<Article> articleList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_title);
 
-        articleList = new ArrayList<>();
-        titleLV = findViewById(R.id.newsList);
+        ArrayList<Article> articleList = new ArrayList<>();
+        System.out.println(articleList);
+        Log.v("JSON OUTPU", articleList.toString());
+        ListView titleLV = findViewById(R.id.newsList);
         new GetContacts().execute();
     }
 
@@ -42,6 +40,8 @@ public class Title extends AppCompatActivity {
             String jsonStr = null;
 
             // Making a request to url and getting response
+            // URL to get contacts JSON
+            String SERVICE_URL = "https://newsapi.org/v2/everything?q=bitcoin&apiKey=d756c14cccba4dad966144c75787dfa1";
             jsonStr = sh.makeServiceCall(SERVICE_URL);
 
             Log.e(TAG,  jsonStr);
