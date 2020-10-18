@@ -4,15 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/black"
     tools:context=".DisplayActivity">
 
     <ImageView
         android:id="@+id/image"
-        android:layout_width="266dp"
-        android:layout_height="159dp"
+        android:layout_width="226dp"
+        android:layout_height="127dp"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/title"></ImageView>
@@ -32,6 +32,7 @@
         android:layout_width="370dp"
         android:layout_height="25dp"
         android:layout_marginTop="20dp"
+        android:textColor="@android:color/darker_gray"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -40,7 +41,7 @@
         android:id="@+id/author"
         android:layout_width="370dp"
         android:layout_height="25dp"
-        android:layout_marginTop="20dp"
+        android:textColor="@android:color/darker_gray"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/source" />
@@ -49,7 +50,9 @@
         android:id="@+id/title"
         android:layout_width="370dp"
         android:layout_height="50dp"
-        android:layout_marginTop="20dp"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"
+        android:textColor="@android:color/darker_gray"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/author" />
@@ -58,8 +61,11 @@
         android:id="@+id/url"
         android:layout_width="370dp"
         android:layout_height="50dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="8dp"
+        android:textStyle="italic"
+        android:textColor="@android:color/darker_gray"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.512"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/image" />
 
@@ -67,7 +73,7 @@
         android:id="@+id/description"
         android:layout_width="370dp"
         android:layout_height="70dp"
-        android:layout_marginTop="15dp"
+        android:textColor="@android:color/darker_gray"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="parent"
@@ -77,7 +83,8 @@
         android:id="@+id/publishedAt"
         android:layout_width="370dp"
         android:layout_height="25dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="5dp"
+        android:textColor="@android:color/darker_gray"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="parent"
@@ -87,11 +94,12 @@
         android:id="@+id/content"
         android:layout_width="370dp"
         android:layout_height="190dp"
+        android:layout_marginBottom="28dp"
         android:scrollbars="vertical"
+        android:textColor="@android:color/darker_gray"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.513"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/description" />
+        app:layout_constraintHorizontal_bias="0.512"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
