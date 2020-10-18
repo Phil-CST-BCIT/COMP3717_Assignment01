@@ -3,7 +3,9 @@ package com.bcit.comp3717.assignment01;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Article {
+import java.io.Serializable;
+
+public class Article implements Serializable {
     @SerializedName("author")
     @Expose
     private String author;

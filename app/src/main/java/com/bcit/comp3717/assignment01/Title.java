@@ -5,7 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.google.gson.Gson;
@@ -28,7 +31,6 @@ public class Title extends AppCompatActivity {
         titleLV = findViewById(R.id.newsList);
         new GetContacts().execute();
     }
-
     private class GetContacts extends AsyncTask<Void, Void, Void> {
         @Override
         protected void onPreExecute() {
@@ -76,6 +78,16 @@ public class Title extends AppCompatActivity {
 
             // Attach the adapter to a ListView
             titleLV.setAdapter(adapter);
+            titleLV.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    Article selectedItem = (Article) parent.getItemAtPosition(position);
+                    Intent intent = new Intent(getBaseContext(), DisplayActivity.class);
+                    Log.v("LOG", selectedItem.getDescription());
+                    intent.putExtra("JSON_DOCUMENT", selectedItem);
+                    startActivity(intent);
+                }
+            });
         }
     }
 }
