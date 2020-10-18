@@ -8,7 +8,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
@@ -16,12 +18,16 @@ import com.google.gson.Gson;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-
+    public static final String EXTRA_MESSAGE = "keyword";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        EditText searchBar = (EditText) findViewById(R.id.editTextTextKeyword);
+
+        final String keyword = searchBar.getText().toString();
 
         Button btnSearch = findViewById(R.id.btnSearch);
 
@@ -29,10 +35,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, Title.class);
+                intent.putExtra(EXTRA_MESSAGE, keyword);
                 startActivity(intent);
             }
         });
 
+        searchBar.setText("");
     }
 
 }
