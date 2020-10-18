@@ -18,6 +18,7 @@ public class Title extends AppCompatActivity {
     // URL to get contacts JSON
     private static String SERVICE_URL = "https://newsapi.org/v2/everything?q=bitcoin&apiKey=d756c14cccba4dad966144c75787dfa1";
     private ArrayList<Article> articleList;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
