@@ -1,60 +1,67 @@
 package com.bcit.comp3717.assignment01;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ListView;
-
 import com.google.gson.Gson;
-
 import java.util.ArrayList;
 
 public class Title extends AppCompatActivity {
 
-    private String TAG = Title.class.getSimpleName();
-    private ListView titleLV;
-    // URL to get contacts JSON
-    private static String SERVICE_URL;
-    private ArrayList<Article> articleList;
+    private ArrayList<Article> articleList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_title);
-        articleList = new ArrayList<>();
-        titleLV = findViewById(R.id.newsList);
-        new GetContacts().execute();
+
+        Intent intent = getIntent();
+        String keyword = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
+
+        String query = buildQuery(keyword);
+
+        new RetrieveNews().execute(query);
     }
 
-    private class GetContacts extends AsyncTask<Void, Void, Void> {
+//    private boolean isValid(String query) {
+//        if(query.isEmpty() || query == null) {
+//            return false;
+//        } else if(query.) {
+//
+//        }
+//    }
+
+    private String buildQuery(String keyword) {
+        return "https://newsapi.org/v2/everything?q=" + keyword + "&sortBy=publishedAt&apiKey=d756c14cccba4dad966144c75787dfa1";
+    }
+
+    private class RetrieveNews extends AsyncTask<String, Void, Void> {
+
+        String TAG = Title.class.getSimpleName();
+
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
         }
 
         @Override
-        protected Void doInBackground(Void... arg0) {
-            Intent intent = new Intent();
+        protected Void doInBackground(String... arg) {
 
-            String keyword = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
-
-            SERVICE_URL = "https://newsapi.org/v2/everything?q=" + keyword + "&sortBy=publishedAt&apiKey=d756c14cccba4dad966144c75787dfa1";
-
-            HttpHandler sh = new HttpHandler();
-            String jsonStr = null;
+            HttpHandler queryHandle = new HttpHandler();
 
             // Making a request to url and getting response
-            jsonStr = sh.makeServiceCall(SERVICE_URL);
+            String json = queryHandle.makeServiceCall(arg[0]);
 
-            Log.e(TAG,  jsonStr);
+            Log.e(TAG,  json);
 
-            if(jsonStr != null) {
+            if(json != null) {
                 Gson gson = new Gson();
 
-                News news = gson.fromJson(jsonStr, News.class);
+                News news = gson.fromJson(json, News.class);
 
                 articleList = news.getArticles();
             } else {
@@ -66,12 +73,8 @@ public class Title extends AppCompatActivity {
         @Override
         protected void onPostExecute(Void result) {
             super.onPostExecute(result);
-//            for(Article a: articleList) {
-//                System.out.println(a.toString());
-//            }
-
             ArticleAdapter adapter = new ArticleAdapter(Title.this, articleList);
-
+            ListView titleLV = findViewById(R.id.newsList);;
             // Attach the adapter to a ListView
             titleLV.setAdapter(adapter);
         }
