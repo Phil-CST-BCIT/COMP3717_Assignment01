@@ -56,6 +56,7 @@ public class Title extends AppCompatActivity {
             // Making a request to url and getting response
             String json = queryHandle.makeServiceCall(arg[0]);
 
+
             Log.e(TAG,  json);
 
             if(json != null) {
