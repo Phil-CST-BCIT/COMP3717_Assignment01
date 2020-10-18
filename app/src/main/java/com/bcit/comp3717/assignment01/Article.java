@@ -78,6 +78,9 @@ public class Article {
         return content;
     }
 
+    public String toString() {
+        return "Articles: [ author = " + author + ", title = " + title + " ]";
+    }
 
 
     private static class Source {
@@ -96,6 +99,7 @@ public class Article {
         public String getName() {
             return name;
         }
+
     }
 
 }

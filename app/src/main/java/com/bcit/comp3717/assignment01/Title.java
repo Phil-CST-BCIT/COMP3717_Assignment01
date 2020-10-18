@@ -46,23 +46,24 @@ public class Title extends AppCompatActivity {
 
             Log.e(TAG,  jsonStr);
 
-            Gson gson = new Gson();
+            if(jsonStr != null) {
+                Gson gson = new Gson();
 
-            News news = gson.fromJson(jsonStr, News.class);
+                News news = gson.fromJson(jsonStr, News.class);
 
-            System.out.println(news);
-
+                articleList = news.getArticles();
+            } else {
+                Log.e(TAG, "Couldn't get json from server.");
+            }
             return null;
         }
 
-//        @Override
-//        protected void onPostExecute(Void result) {
-//            super.onPostExecute(result);
-//
-//            NewsAdapter adapter = new NewsAdapter(Title.this, newsList);
-//
-//            // Attach the adapter to a ListView
-//            titleLV.setAdapter(adapter);
-//        }
+        @Override
+        protected void onPostExecute(Void result) {
+            super.onPostExecute(result);
+            for(Article a: articleList) {
+                System.out.println(a.toString());
+            }
+        }
     }
 }
