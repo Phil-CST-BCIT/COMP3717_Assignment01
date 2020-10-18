@@ -4,7 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import com.google.gson.Gson;
 import java.util.ArrayList;
@@ -27,14 +30,6 @@ public class Title extends AppCompatActivity {
         new RetrieveNews().execute(query);
     }
 
-//    private boolean isValid(String query) {
-//        if(query.isEmpty() || query == null) {
-//            return false;
-//        } else if(query.) {
-//
-//        }
-//    }
-
     private String buildQuery(String keyword) {
         return "https://newsapi.org/v2/everything?q=" + keyword + "&sortBy=publishedAt&apiKey=d756c14cccba4dad966144c75787dfa1";
     }
@@ -42,7 +37,7 @@ public class Title extends AppCompatActivity {
     private class RetrieveNews extends AsyncTask<String, Void, Void> {
 
         String TAG = Title.class.getSimpleName();
-
+      
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
@@ -78,6 +73,16 @@ public class Title extends AppCompatActivity {
             ListView titleLV = findViewById(R.id.newsList);;
             // Attach the adapter to a ListView
             titleLV.setAdapter(adapter);
+            titleLV.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    Article selectedItem = (Article) parent.getItemAtPosition(position);
+                    Intent intent = new Intent(getBaseContext(), DisplayActivity.class);
+                    Log.v("LOG", selectedItem.getDescription());
+                    intent.putExtra("JSON_DOCUMENT", selectedItem);
+                    startActivity(intent);
+                }
+            });
         }
     }
 }
