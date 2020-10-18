@@ -8,14 +8,15 @@
 
     <ImageView
         android:id="@+id/image"
-        android:layout_width="192dp"
-        android:layout_height="89dp"
+        android:layout_width="342dp"
+        android:layout_height="209dp"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.041"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title"></ImageView>
+        app:layout_constraintTop_toTopOf="parent"></ImageView>
 
     <ProgressBar
         android:id="@+id/progressBar"
@@ -29,67 +30,66 @@
 
     <TextView
         android:id="@+id/source"
-        android:layout_width="303dp"
-        android:layout_height="18dp"
-        android:layout_marginTop="10dp"
+        android:layout_width="350dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.963"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/author"
-        android:layout_width="303dp"
-        android:layout_height="18dp"
-        android:layout_marginTop="10dp"
+        android:layout_width="350dp"
+        android:layout_height="20dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.962"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/source" />
 
     <TextView
         android:id="@+id/title"
-        android:layout_width="303dp"
-        android:layout_height="18dp"
-        android:layout_marginTop="10dp"
+        android:layout_width="350dp"
+        android:layout_height="40dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.963"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/author" />
 
     <TextView
-        android:id="@+id/url"
-        android:layout_width="303dp"
-        android:layout_height="18dp"
-        android:layout_marginTop="10dp"
+        android:id="@+id/publishedAt"
+        android:layout_width="339dp"
+        android:layout_height="23dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.04"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/image" />
 
     <TextView
-        android:id="@+id/description"
-        android:layout_width="303dp"
-        android:layout_height="18dp"
-        android:layout_marginTop="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/url" />
-
-    <TextView
-        android:id="@+id/publishedAt"
-        android:layout_width="303dp"
-        android:layout_height="18dp"
-        android:layout_marginTop="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/description" />
-
-    <TextView
         android:id="@+id/content"
-        android:layout_width="563dp"
-        android:layout_height="129dp"
-        android:layout_marginTop="10dp"
+        android:layout_width="690dp"
+        android:layout_height="78dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.39"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/url"
+        android:layout_width="350dp"
+        android:layout_height="55dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.963"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/publishedAt"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/title" />
+
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="350dp"
+        android:layout_height="90dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.963"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/url" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
