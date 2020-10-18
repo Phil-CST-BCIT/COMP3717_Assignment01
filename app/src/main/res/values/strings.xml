@@ -2,7 +2,10 @@
     <string name="app_name">Assignment01</string>
     <string name="keyword">keyword</string>
     <string name="search">search</string>
+<<<<<<< HEAD
+=======
     <string name="searchHint">Search keyword</string>
 
 
+>>>>>>> bbcff8560716c2022e30fc82e2ef397048bca7e6
 </resources>
