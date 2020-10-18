@@ -6,8 +6,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".MainActivity">
-
-
     <EditText
         android:id="@+id/editTextTextKeyword"
         android:layout_width="match_parent"
