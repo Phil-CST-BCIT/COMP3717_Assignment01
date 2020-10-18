@@ -26,15 +26,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         EditText searchBar = (EditText) findViewById(R.id.editTextTextKeyword);
-
         final String keyword = searchBar.getText().toString();
 
         Button btnSearch = findViewById(R.id.btnSearch);
 
         btnSearch.setOnClickListener(new View.OnClickListener() {
+            Intent intent = new Intent(MainActivity.this, Title.class);
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, Title.class);
                 intent.putExtra(EXTRA_MESSAGE, keyword);
                 startActivity(intent);
             }

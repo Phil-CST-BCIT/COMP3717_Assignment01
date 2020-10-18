@@ -26,6 +26,14 @@ public class Title extends AppCompatActivity {
         setContentView(R.layout.activity_title);
         articleList = new ArrayList<>();
         titleLV = findViewById(R.id.newsList);
+
+        Intent intent = new Intent();
+
+        String keyword = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
+
+
+        SERVICE_URL = "https://newsapi.org/v2/everything?q=" + keyword + "&sortBy=publishedAt&apiKey=d756c14cccba4dad966144c75787dfa1";
+
         new GetContacts().execute();
     }
 
@@ -37,11 +45,6 @@ public class Title extends AppCompatActivity {
 
         @Override
         protected Void doInBackground(Void... arg0) {
-            Intent intent = new Intent();
-
-            String keyword = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
-
-            SERVICE_URL = "https://newsapi.org/v2/everything?q=" + keyword + "&sortBy=publishedAt&apiKey=d756c14cccba4dad966144c75787dfa1";
 
             HttpHandler sh = new HttpHandler();
             String jsonStr = null;
