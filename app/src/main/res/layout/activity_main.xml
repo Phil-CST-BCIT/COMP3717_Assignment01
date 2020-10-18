@@ -13,7 +13,7 @@
         android:layout_marginTop="15dp"
         android:ems="10"
         android:inputType="textAutoCorrect"
-        android:hint="@string/searchHint"
+        android:text=""
         android:autofillHints="@string/keyword" />
 
     <Button
