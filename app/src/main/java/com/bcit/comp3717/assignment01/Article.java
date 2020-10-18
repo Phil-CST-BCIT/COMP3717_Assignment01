@@ -34,6 +34,10 @@ public class Article implements Serializable {
     @Expose
     private String content;
 
+    @SerializedName("source")
+    @Expose
+    private Source source;
+
     public String getAuthor() {
         return author;
     }
