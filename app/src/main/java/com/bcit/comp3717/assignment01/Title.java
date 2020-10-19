@@ -16,6 +16,7 @@ import java.util.ArrayList;
  */
 public class Title extends AppCompatActivity {
 
+    //member attribute to store articles a news json object
     private ArrayList<Article> articleList = new ArrayList<>();
 
     /**
@@ -39,13 +40,6 @@ public class Title extends AppCompatActivity {
         new RetrieveNews().execute(query);
     }
 
-//    private boolean isValid(String query) {
-//        if(query.isEmpty() || query == null) {
-//            return false;
-//        } else if(query.) {
-//
-//        }
-//    }
 
     /**
      * Builds the query to send to the API
@@ -92,6 +86,7 @@ public class Title extends AppCompatActivity {
             return null;
         }
 
+        //when the query is done, execute this
         @Override
         protected void onPostExecute(Void result) {
             super.onPostExecute(result);
