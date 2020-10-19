@@ -5,10 +5,24 @@ import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
 
+/**
+ * Represents a news article.
+ */
+
 public class Article implements Serializable {
     @SerializedName("author")
     @Expose
     private String author;
+
+    @SerializedName("source")
+    @Expose
+    private Source source = new Source();
+    public Source getSource() {
+        return source;
+    }
+    public void setSource(Source s) {
+        this.source = source;
+    }
 
     @SerializedName("title")
     @Expose
@@ -81,25 +95,4 @@ public class Article implements Serializable {
     public String toString() {
         return "Articles: [ author = " + author + ", title = " + title + " ]";
     }
-
-
-    private static class Source {
-        @SerializedName("id")
-        @Expose
-        private String id;
-
-        @SerializedName("name")
-        @Expose
-        private String name;
-
-        public String getId() {
-            return id;
-        }
-
-        public String getName() {
-            return name;
-        }
-
-    }
-
 }

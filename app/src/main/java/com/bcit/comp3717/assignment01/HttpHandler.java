@@ -12,12 +12,20 @@ import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
 
+/**
+ * HTTP handle class for sending requests.
+ */
 public class HttpHandler {
 
     private static final String TAG = HttpHandler.class.getSimpleName();
 
     public HttpHandler() {}
 
+    /**
+     * Makes a GET request from a url.
+     * @param reqUrl url to send request to.
+     * @return string response.
+     */
     public String makeServiceCall(String reqUrl) {
         String response = null;
         try {
@@ -39,6 +47,11 @@ public class HttpHandler {
         return response;
     }
 
+    /**
+     * Converts a stream to string.
+     * @param istream stream to convert.
+     * @return converted string.
+     */
     private String convertStreamToString(InputStream istream) {
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(istream));
