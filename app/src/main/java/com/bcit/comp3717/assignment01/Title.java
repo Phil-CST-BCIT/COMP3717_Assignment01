@@ -11,15 +11,25 @@ import android.widget.ListView;
 import com.google.gson.Gson;
 import java.util.ArrayList;
 
+/**
+ * Represents the ListView activity displaying news stories.
+ */
 public class Title extends AppCompatActivity {
 
     private ArrayList<Article> articleList = new ArrayList<>();
 
+    /**
+     * Create method for this activity.
+     * @param savedInstanceState saved state.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_title);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setLogo(R.drawable.ic_action_name);
+        getSupportActionBar().setDisplayUseLogoEnabled(true);
 
         Intent intent = getIntent();
         String keyword = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
@@ -37,10 +47,18 @@ public class Title extends AppCompatActivity {
 //        }
 //    }
 
+    /**
+     * Builds the query to send to the API
+     * @param keyword to search
+     * @return response.
+     */
     private String buildQuery(String keyword) {
         return "https://newsapi.org/v2/everything?q=" + keyword + "&sortBy=publishedAt&apiKey=d756c14cccba4dad966144c75787dfa1";
     }
 
+    /**
+     * Retrieves news from API.
+     */
     private class RetrieveNews extends AsyncTask<String, Void, Void> {
 
         String TAG = Title.class.getSimpleName();
@@ -67,6 +85,7 @@ public class Title extends AppCompatActivity {
                 News news = gson.fromJson(json, News.class);
 
                 articleList = news.getArticles();
+
             } else {
                 Log.e(TAG, "Couldn't get json from server.");
             }

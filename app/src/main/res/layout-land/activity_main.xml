@@ -25,10 +25,10 @@
         android:text="@string/search"/>
 
     <ImageView
-        android:layout_gravity="center"
         android:id="@+id/imageView"
-        android:layout_width="391dp"
-        android:layout_height="543dp"
+        android:layout_width="257dp"
+        android:layout_height="173dp"
+        android:layout_gravity="center"
         app:srcCompat="@drawable/illum" />
 
 

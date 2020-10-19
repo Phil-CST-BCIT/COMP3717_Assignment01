@@ -7,7 +7,6 @@ import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -31,6 +30,9 @@ public class DisplayActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setLogo(R.drawable.ic_action_name);
+        getSupportActionBar().setDisplayUseLogoEnabled(true);
         Intent intent = getIntent();
         Article article = (Article) intent.getSerializableExtra("JSON_DOCUMENT");
         if (article != null) {
@@ -53,6 +55,9 @@ public class DisplayActivity extends AppCompatActivity {
         TextView content = findViewById(R.id.content);
         content.setMovementMethod(new ScrollingMovementMethod());
         TextView publishedAt = findViewById(R.id.publishedAt);
+        TextView source = findViewById(R.id.source);
+
+        source.setText(article.getSource().getName());
         author.setText(article.getAuthor());
         title.setText(article.getTitle());
         url.setText(article.getUrl());
@@ -86,7 +91,6 @@ public class DisplayActivity extends AppCompatActivity {
         protected void onProgressUpdate(Integer... progress) {
             progressBar.incrementProgressBy(progress[0]);
         }
-
 
         @Override
         protected void onPostExecute(Bitmap result) {
