@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -14,6 +13,7 @@ import java.util.ArrayList;
 
 public class Title extends AppCompatActivity {
 
+    //member attribute to store articles a news json object
     private ArrayList<Article> articleList = new ArrayList<>();
 
     @Override
@@ -30,10 +30,12 @@ public class Title extends AppCompatActivity {
         new RetrieveNews().execute(query);
     }
 
+    //concatenate a search keyword with the query
     private String buildQuery(String keyword) {
         return "https://newsapi.org/v2/everything?q=" + keyword + "&sortBy=publishedAt&apiKey=d756c14cccba4dad966144c75787dfa1";
     }
 
+    //async method for http request
     private class RetrieveNews extends AsyncTask<String, Void, Void> {
 
         String TAG = Title.class.getSimpleName();
@@ -66,6 +68,7 @@ public class Title extends AppCompatActivity {
             return null;
         }
 
+        //when the query is done, execute this
         @Override
         protected void onPostExecute(Void result) {
             super.onPostExecute(result);
